@@ -10,10 +10,12 @@ L'output del prezzo finale va stampato in forma umana (ovvero con massimo due de
 const button = document.getElementById("generatePrice");
 const result = document.getElementById("priceResult");
 
-button.addEventListener("click", function priceCalc(e) 
+button.addEventListener("submit", function priceCalc(e) 
 {
 
     console.log(e);
+
+    e.preventDefault();
 
     const passengerName = document.getElementById("userName").value;
 

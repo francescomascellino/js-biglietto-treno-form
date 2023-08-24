@@ -11,15 +11,28 @@
             integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
             crossorigin="anonymous">
 
+        <style>
+                .col, .left, .right { border: 1px solid red;
+                min-height: 10rem; 
+                background-color: lightgrey;               
+                }
+
+                .left {
+                    border-right: 5px dotted white;
+                }
+
+                
+            </style>
+
     </head>
     <body>
 
         <div class="container">
 
-            <div class="row  vh-100 align-content-center justify-content-center">
+            <div
+                class="row flex-column align-items-center justify-content-center">
 
-                <form onsubmit="return false"
-                    class="col-9 card p-4 my-4">
+                <form class="col-9 card p-4 my-4">
 
                     <h3 class="text-center">Inserisci i dati richiesti per
                         calcolare il costo del biglietto</h3>
@@ -41,7 +54,8 @@
                     </select>
 
                     <div class="d-flex justify-content-around">
-                        <button id="generatePrice"
+
+                        <button id="generatePrice" type="submit"
                             class="btn btn-success shadow mt-4">Calcola</button>
 
                         <button id="resetBtn" type="reset"
@@ -51,6 +65,20 @@
                 </form>
 
                 <h4 id="priceResult" class="text-center"></h4>
+
+                <div class="row d-flex">
+
+                    <div class="left col-9">
+
+                    </div>
+
+                    <div class="right col-3">
+
+                        right
+
+                    </div>
+
+                </div>
 
             </div>
         </div>
