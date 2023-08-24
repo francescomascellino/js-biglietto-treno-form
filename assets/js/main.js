@@ -25,7 +25,7 @@ button.addEventListener("click", function priceCalc()
 
     console.log("l'età del passeggero è: " + age);
 
-    if (distance == 0) {
+    if (distance == 0 || passengerName == 0) {
         result.innerHTML = "Uno dei valori inseriti non è valido. Riprova."
     } 
     
@@ -39,7 +39,7 @@ button.addEventListener("click", function priceCalc()
             console.log("lo sconto applicato è: " + discount20);
             const discountedPrice = (price - discount20).toFixed(2);
             console.log("Il prezzo scontato del biglietto è " + discountedPrice);
-            result.innerHTML = `Il prezzo del biglietto per la distanza richiesta è ${discountedPrice}€.`
+            result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è ${discountedPrice}€.`
         } 
         
         else if (age == "elder") {
@@ -50,13 +50,13 @@ button.addEventListener("click", function priceCalc()
             console.log("lo sconto applicato è: " + discount40);
             const discountedPrice = (price - discount40).toFixed(2);
             console.log("Il prezzo scontato del biglietto è " + discountedPrice);
-            result.innerHTML = `Il prezzo del biglietto per la distanza richiesta è ${discountedPrice}€.`
+            result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è ${discountedPrice}€.`
         } 
         
         else {
             console.log("Il passeggero è adulto");
             const price = (distance * 0.21).toFixed(2);
-            result.innerHTML = `Il prezzo del biglietto per la distanza richiesta è ${price}€.`
+            result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è ${price}€.`
             console.log("Il prezzo è " + price);        
         }
     }
