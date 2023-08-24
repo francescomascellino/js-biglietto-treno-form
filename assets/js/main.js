@@ -41,8 +41,10 @@ ticketForm.addEventListener("submit", function(e)
     if (distance == 0 || passengerName == 0) {
 
         // VIENE VISUALIZZATO UN MESSAGGIO DI ERRORE IN CASO DI INESATTEZZA DEI PARAMETRI
-        errorMessage.style.display = "block"        
-        errorMessage.innerHTML = "Uno dei valori inseriti non è valido. Riprova."
+        errorMessage.style.display = "block";
+        errorMessage.innerHTML = "Uno dei valori inseriti non è valido. Riprova.";
+
+        // IL BIGLIETTO VIENE NASCOSTO
         ticket.style.display = "none";
     } 
     
@@ -53,7 +55,9 @@ ticketForm.addEventListener("submit", function(e)
             errorMessage.style.display = "none";  
             // VIENE VISUALIZZATO IL MESSAGGIO DI SCONTO CORRETTO
             discountTicketE.style.display = "none";
-            discountTicketM.style.display = "inline";  
+            discountTicketM.style.display = "inline";
+
+            // CALCOLO DEL PREZZO  
             console.log("Il passeggero è minorenne");
             const price = distance * 0.21;
             console.log("Il prezzo è " + price);
@@ -61,6 +65,8 @@ ticketForm.addEventListener("submit", function(e)
             console.log("lo sconto applicato è: " + discount20);
             const discountedPrice = (price - discount20).toFixed(2);
             console.log("Il prezzo scontato del biglietto è " + discountedPrice);
+
+            // IL PREZZO VIENE STAMPATO IN PAGINA E IL BIGLIETTO VIENE VISUALIZZATO
             ticketPrice.innerHTML = `${discountedPrice} €`;
             ticket.style.display = "flex";
         } 
@@ -71,6 +77,8 @@ ticketForm.addEventListener("submit", function(e)
             // VIENE VISUALIZZATO IL MESSAGGIO DI SCONTO CORRETTO
             discountTicketM.style.display = "none";
             discountTicketE.style.display = "inline" ;
+
+            // CALCOLO DEL PREZZO  
             console.log("Il passeggero è un anziano");
             const price = distance * 0.21;
             console.log("Il prezzo è " + price);
@@ -78,6 +86,8 @@ ticketForm.addEventListener("submit", function(e)
             console.log("lo sconto applicato è: " + discount40);
             const discountedPrice = (price - discount40).toFixed(2);
             console.log("Il prezzo scontato del biglietto è " + discountedPrice);
+
+            // IL PREZZO VIENE STAMPATO IN PAGINA E IL BIGLIETTO VIENE VISUALIZZATO
             ticketPrice.innerHTML = `${discountedPrice} €`;
             ticket.style.display = "flex";
         } 
@@ -88,11 +98,15 @@ ticketForm.addEventListener("submit", function(e)
             // I MESSAGGI DI SCONTO VENGONO RIMOSSI
             discountTicketM.style.display = "none";
             discountTicketE.style.display = "none";
+
+            // CALCOLO DEL PREZZO  
             console.log("Il passeggero è adulto");
             const price = (distance * 0.21).toFixed(2);
             result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è ${price}€.`
             ticketPrice.innerHTML = `${price} €`
             console.log("Il prezzo è " + price);
+
+            // IL PREZZO VIENE STAMPATO IN PAGINA E IL BIGLIETTO VIENE VISUALIZZATO
             ticket.style.display = "flex";
         }
     }
