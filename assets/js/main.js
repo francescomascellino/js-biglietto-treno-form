@@ -8,9 +8,10 @@ L'output del prezzo finale va stampato in forma umana (ovvero con massimo due de
 */
 
 const button = document.getElementById("generatePrice");
+const ticketForm = document.getElementById("ticketForm");
 const result = document.getElementById("priceResult");
 
-button.addEventListener("submit", function() 
+ticketForm.addEventListener("submit", function(e) 
 {
 
     console.log(e);
