@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ticket Calculator</title>
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+            crossorigin="anonymous">
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="row  vh-100 align-content-center justify-content-center">
+                <div
+                    class="col-9 card align-items-center p-2 my-4">
+
+                    <label for="userName">Inserisci il tuo nome:</label>
+                    <input type="text" id="userName" placeholder="Nome">
+
+                    <label for="distance">Inserisci la distanza in Km da
+                        percorrrere:</label>
+                    <input type="number" id="userName" placeholder="Km">
+
+                    <label for="ageRange">Seleziona una fascia di età:</label>
+                    <select id="ageRange">
+                        <option value="minor">Fino ai 14 anni</option>
+                        <option value="adult">Dai 15 ai 65 anni</option>
+                        <option value="elder">Over 65</option>
+                    </select>
+
+                    <!--  -->
+
+                    <h2 class="text-center">Clicca sul bottone per inserire
+                        i
+                        dati e conoscere il
+                        prezzo del tuo biglietto!</h2>
+
+                    <button id="generatePrice"
+                        class="btn btn-success shadow my-4">Calcola</button>
+
+                    <h4 id="priceResult" class="text-center"></h4>
+                </div>
+            </div>
+        </div>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+
+        <script type="text/javascript" src="./assets/js/main.js"></script>
+    </body>
+</html>
