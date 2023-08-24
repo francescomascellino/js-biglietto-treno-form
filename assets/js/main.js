@@ -7,9 +7,10 @@ va applicato uno sconto del 40% per gli over 65.
 L'output del prezzo finale va stampato in forma umana (ovvero con massimo due decimali, per indicare i centesimi sul prezzo). Questo richiederà un minimo di ricerca nella documentazione di JS. 
 */
 
-const button = document.getElementById("generatePrice");
 const ticketForm = document.getElementById("ticketForm");
 const result = document.getElementById("priceResult");
+const ticketName = document.getElementById("ticketName");
+const ticketDistance = document.getElementById("ticketDistance");
 
 ticketForm.addEventListener("submit", function(e) 
 {
@@ -20,11 +21,15 @@ ticketForm.addEventListener("submit", function(e)
 
     const passengerName = document.getElementById("userName").value;
 
+    ticketName.innerHTML = passengerName
+
     console.log("Il nome del passeggero è " + passengerName);
 
     const distance = document.getElementById("distance").value;
 
     console.log("la distanza da percorrere è: " + distance);
+
+    ticketDistance.innerHTML = `${distance} Km`
 
     const age = document.getElementById("ageRange").value
 
@@ -45,7 +50,6 @@ ticketForm.addEventListener("submit", function(e)
             const discountedPrice = (price - discount20).toFixed(2);
             console.log("Il prezzo scontato del biglietto è " + discountedPrice);
             result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è ${discountedPrice}€.`
-            return false;
         } 
         
         else if (age == "elder") {
