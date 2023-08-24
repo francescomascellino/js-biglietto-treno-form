@@ -11,22 +11,7 @@
             integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
             crossorigin="anonymous">
 
-        <style>
-                .col, .left, .right { border: 1px solid grey;
-                min-height: 10rem; 
-                background-color: lightgrey;               
-                }
-
-                .left {
-                    border-right: 5px dotted white;
-                }
-
-                .discount {
-                    font-size: 0.6rem;
-                }
-
-                
-            </style>
+        <link rel="stylesheet" href="./assets/css/style.css">
 
     </head>
     <body>
@@ -71,13 +56,14 @@
                 <h4 id="errorMessage" class="text-center text-danger"></h4>
 
                 <!-- BIGLIETTO -->
-                <div class="row d-flex justify-content-center">
+                <div id="ticket"
+                    class="row justify-content-center">
 
                     <div
                         class="left col-7 rounded-start shadow p-4 d-flex flex-column justify-content-center">
 
                         <h2>Nome del passeggero:</h2>
-                        <h3 id="ticketName" class="text-uppercase">pino</h3>
+                        <h3 id="ticketName" class="text-uppercase"></h3>
 
                     </div>
 
@@ -85,16 +71,16 @@
                         class="right col-3 border-start-0 rounded-end shadow p-4">
 
                         <h5 class="mb-1">Lunghezza della tratta:</h5> <span
-                            id="ticketDistance">Km</span>
+                            id="ticketDistance"></span>
 
                         <h5 class="mt-2 mb-1">Prezzo:</h5> <span
-                            id="ticketPrice">€</span>
+                            id="ticketPrice"></span>
                         <br>
 
-                        <span id="discountM" class="d-none">*sconto under 15
+                        <span id="discountM">*sconto under 15
                             applicatto</span>
 
-                        <span id="discountE" class="d-none">*sconto over 65
+                        <span id="discountE">*sconto over 65
                             applicatto</span>
 
                     </div>

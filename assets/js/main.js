@@ -13,7 +13,8 @@ const ticketName = document.getElementById("ticketName");
 const ticketDistance = document.getElementById("ticketDistance");
 const ticketPrice = document.getElementById("ticketPrice");
 const discountTicketM = document.getElementById("discountM");
-const discountTicketE = document.getElementById("discountE")
+const discountTicketE = document.getElementById("discountE");
+const ticket = document.getElementById("ticket");
 
 ticketForm.addEventListener("submit", function(e) 
 {
@@ -40,17 +41,19 @@ ticketForm.addEventListener("submit", function(e)
     if (distance == 0 || passengerName == 0) {
 
         // VIENE VISUALIZZATO UN MESSAGGIO DI ERRORE IN CASO DI INESATTEZZA DEI PARAMETRI
-        errorMessage.style.display = "none"
-        // errorMessage.classList.remove("d-none");
+        errorMessage.style.display = "block"        
         errorMessage.innerHTML = "Uno dei valori inseriti non è valido. Riprova."
+        ticket.style.display = "none";
     } 
     
     else 
     {
         if (age == "minor") {
-
             // IL MESSAGGIO DI ERRORE SE VISIBILE VIENE RIMOSSO
-            errorMessage.classList.add("d-none");
+            errorMessage.style.display = "none";  
+            // VIENE VISUALIZZATO IL MESSAGGIO DI SCONTO CORRETTO
+            discountTicketE.style.display = "none";
+            discountTicketM.style.display = "inline";  
             console.log("Il passeggero è minorenne");
             const price = distance * 0.21;
             console.log("Il prezzo è " + price);
@@ -58,14 +61,16 @@ ticketForm.addEventListener("submit", function(e)
             console.log("lo sconto applicato è: " + discount20);
             const discountedPrice = (price - discount20).toFixed(2);
             console.log("Il prezzo scontato del biglietto è " + discountedPrice);
-            ticketPrice.innerHTML = `${discountedPrice} €`
-            result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è ${discountedPrice}€.`;
-            discountTicketE.classList.add("d-none");
-            discountTicketM.classList.remove("d-none");
+            ticketPrice.innerHTML = `${discountedPrice} €`;
+            ticket.style.display = "flex";
         } 
         
         else if (age == "elder") {
-            errorMessage.classList.add("d-none");
+            // IL MESSAGGIO DI ERRORE SE VISIBILE VIENE RIMOSSO
+            errorMessage.style.display = "none";
+            // VIENE VISUALIZZATO IL MESSAGGIO DI SCONTO CORRETTO
+            discountTicketM.style.display = "none";
+            discountTicketE.style.display = "inline" ;
             console.log("Il passeggero è un anziano");
             const price = distance * 0.21;
             console.log("Il prezzo è " + price);
@@ -73,21 +78,22 @@ ticketForm.addEventListener("submit", function(e)
             console.log("lo sconto applicato è: " + discount40);
             const discountedPrice = (price - discount40).toFixed(2);
             console.log("Il prezzo scontato del biglietto è " + discountedPrice);
-            ticketPrice.innerHTML = `${discountedPrice} €`
-            result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è ${discountedPrice}€.`;
-            discountTicketM.classList.add("d-none");
-            discountTicketE.classList.remove("d-none");
+            ticketPrice.innerHTML = `${discountedPrice} €`;
+            ticket.style.display = "flex";
         } 
         
         else {
-            errorMessage.classList.add("d-none");
+            // IL MESSAGGIO DI ERRORE SE VISIBILE VIENE RIMOSSO
+            errorMessage.style.display = "none";
+            // I MESSAGGI DI SCONTO VENGONO RIMOSSI
+            discountTicketM.style.display = "none";
+            discountTicketE.style.display = "none";
             console.log("Il passeggero è adulto");
             const price = (distance * 0.21).toFixed(2);
             result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è ${price}€.`
             ticketPrice.innerHTML = `${price} €`
             console.log("Il prezzo è " + price);
-            discountTicketM.classList.add("d-none");
-            discountTicketE.classList.add("d-none");        
+            ticket.style.display = "flex";
         }
     }
 });
