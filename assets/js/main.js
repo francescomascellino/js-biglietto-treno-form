@@ -8,7 +8,7 @@ L'output del prezzo finale va stampato in forma umana (ovvero con massimo due de
 */
 
 const ticketForm = document.getElementById("ticketForm");
-const result = document.getElementById("priceResult");
+const errorMessage = document.getElementById("errorMessage");
 const ticketName = document.getElementById("ticketName");
 const ticketDistance = document.getElementById("ticketDistance");
 const ticketPrice = document.getElementById("ticketPrice");
@@ -22,29 +22,35 @@ ticketForm.addEventListener("submit", function(e)
 
     e.preventDefault();
 
+    // NOME DEL PASSEGGERO
     const passengerName = document.getElementById("userName").value;
 
     ticketName.innerHTML = passengerName
-
     console.log("Il nome del passeggero è " + passengerName);
 
+    // DISTANZA
     const distance = document.getElementById("distance").value;
-
     console.log("la distanza da percorrere è: " + distance);
+    ticketDistance.innerHTML = `${distance} Km`;
 
-    ticketDistance.innerHTML = `${distance} Km`
-
-    const age = document.getElementById("ageRange").value
-
+    // ETA'
+    const age = document.getElementById("ageRange").value;
     console.log("l'età del passeggero è: " + age);
 
     if (distance == 0 || passengerName == 0) {
-        result.innerHTML = "Uno dei valori inseriti non è valido. Riprova."
+
+        // VIENE VISUALIZZATO UN MESSAGGIO DI ERRORE IN CASO DI INESATTEZZA DEI PARAMETRI
+        errorMessage.style.display = "none"
+        // errorMessage.classList.remove("d-none");
+        errorMessage.innerHTML = "Uno dei valori inseriti non è valido. Riprova."
     } 
     
     else 
     {
         if (age == "minor") {
+
+            // IL MESSAGGIO DI ERRORE SE VISIBILE VIENE RIMOSSO
+            errorMessage.classList.add("d-none");
             console.log("Il passeggero è minorenne");
             const price = distance * 0.21;
             console.log("Il prezzo è " + price);
@@ -59,6 +65,7 @@ ticketForm.addEventListener("submit", function(e)
         } 
         
         else if (age == "elder") {
+            errorMessage.classList.add("d-none");
             console.log("Il passeggero è un anziano");
             const price = distance * 0.21;
             console.log("Il prezzo è " + price);
@@ -73,6 +80,7 @@ ticketForm.addEventListener("submit", function(e)
         } 
         
         else {
+            errorMessage.classList.add("d-none");
             console.log("Il passeggero è adulto");
             const price = (distance * 0.21).toFixed(2);
             result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è ${price}€.`
