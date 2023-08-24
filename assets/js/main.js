@@ -12,22 +12,27 @@ const result = document.getElementById("priceResult");
 
 button.addEventListener("click", function priceCalc() 
 {
-    const distance = Number(prompt("Inserisci la distanza da percorrere"));
+
+    const passengerName = document.getElementById("userName").value;
+
+    console.log("Il nome del passeggero è " + passengerName);
+
+    const distance = document.getElementById("distance").value;
 
     console.log("la distanza da percorrere è: " + distance);
 
-    const age = Number(prompt("Inserisci l'età del passeggero"))
+    const age = document.getElementById("ageRange").value
 
     console.log("l'età del passeggero è: " + age);
 
-
-    if (isNaN(distance) || isNaN(age) || age > 100) {
+    if (distance == 0) {
         result.innerHTML = "Uno dei valori inseriti non è valido. Riprova."
     } 
     
     else 
     {
-        if (age < 18) {
+        if (age == "minor") {
+            console.log("Il passeggero è minorenne");
             const price = distance * 0.21;
             console.log("Il prezzo è " + price);
             const discount20 = (price * 20) / 100;
@@ -37,7 +42,8 @@ button.addEventListener("click", function priceCalc()
             result.innerHTML = `Il prezzo del biglietto per la distanza richiesta è ${discountedPrice}€.`
         } 
         
-        else if (age > 65) {
+        else if (age == "elder") {
+            console.log("Il passeggero è un anziano");
             const price = distance * 0.21;
             console.log("Il prezzo è " + price);
             const discount40 = (price * 40) / 100;
@@ -48,9 +54,10 @@ button.addEventListener("click", function priceCalc()
         } 
         
         else {
+            console.log("Il passeggero è adulto");
             const price = (distance * 0.21).toFixed(2);
-        result.innerHTML = `Il prezzo del biglietto per la distanza richiesta è ${price}€.`
-        console.log("Il prezzo è " + price);        
+            result.innerHTML = `Il prezzo del biglietto per la distanza richiesta è ${price}€.`
+            console.log("Il prezzo è " + price);        
         }
     }
 });
