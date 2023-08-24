@@ -11,6 +11,9 @@ const ticketForm = document.getElementById("ticketForm");
 const result = document.getElementById("priceResult");
 const ticketName = document.getElementById("ticketName");
 const ticketDistance = document.getElementById("ticketDistance");
+const ticketPrice = document.getElementById("ticketPrice");
+const discountTicketM = document.getElementById("discountM");
+const discountTicketE = document.getElementById("discountE")
 
 ticketForm.addEventListener("submit", function(e) 
 {
@@ -49,7 +52,10 @@ ticketForm.addEventListener("submit", function(e)
             console.log("lo sconto applicato è: " + discount20);
             const discountedPrice = (price - discount20).toFixed(2);
             console.log("Il prezzo scontato del biglietto è " + discountedPrice);
-            result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è ${discountedPrice}€.`
+            ticketPrice.innerHTML = `${discountedPrice} €`
+            result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è ${discountedPrice}€.`;
+            discountTicketE.classList.add("d-none");
+            discountTicketM.classList.remove("d-none");
         } 
         
         else if (age == "elder") {
@@ -60,14 +66,20 @@ ticketForm.addEventListener("submit", function(e)
             console.log("lo sconto applicato è: " + discount40);
             const discountedPrice = (price - discount40).toFixed(2);
             console.log("Il prezzo scontato del biglietto è " + discountedPrice);
-            result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è ${discountedPrice}€.`
+            ticketPrice.innerHTML = `${discountedPrice} €`
+            result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è ${discountedPrice}€.`;
+            discountTicketM.classList.add("d-none");
+            discountTicketE.classList.remove("d-none");
         } 
         
         else {
             console.log("Il passeggero è adulto");
             const price = (distance * 0.21).toFixed(2);
             result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è ${price}€.`
-            console.log("Il prezzo è " + price);        
+            ticketPrice.innerHTML = `${price} €`
+            console.log("Il prezzo è " + price);
+            discountTicketM.classList.add("d-none");
+            discountTicketE.classList.add("d-none");        
         }
     }
 });
