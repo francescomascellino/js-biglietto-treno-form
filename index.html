@@ -12,7 +12,7 @@
             crossorigin="anonymous">
 
         <style>
-                .col, .left, .right { border: 1px solid red;
+                .col, .left, .right { border: 1px solid grey;
                 min-height: 10rem; 
                 background-color: lightgrey;               
                 }
@@ -32,7 +32,7 @@
             <div
                 class="row flex-column align-items-center justify-content-center">
 
-                <form onsubmit="return false" class="col-9 card p-4 my-4">
+                <form class="col-9 card p-4 my-4">
 
                     <h3 class="text-center">Inserisci i dati richiesti per
                         calcolare il costo del biglietto</h3>
@@ -53,14 +53,14 @@
                         <option value="elder">Over 65</option>
                     </select>
 
-                    <!-- <div class="d-flex justify-content-around"> -->
+                    <div class="d-flex justify-content-around">
 
-                    <button id="generatePrice"
-                        class="btn btn-success shadow mt-4">Calcola</button>
+                        <button id="generatePrice" type="submit"
+                            class="btn btn-success shadow mt-4">Calcola</button>
 
-                    <button id="resetBtn" type="reset"
-                        class="btn btn-danger shadow mt-4">Svuota</button>
-                    <!-- </div> -->
+                        <button id="resetBtn" type="reset"
+                            class="btn btn-danger shadow mt-4">Svuota</button>
+                    </div>
 
                 </form>
 
