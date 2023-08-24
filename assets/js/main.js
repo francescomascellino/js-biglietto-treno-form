@@ -10,8 +10,10 @@ L'output del prezzo finale va stampato in forma umana (ovvero con massimo due de
 const button = document.getElementById("generatePrice");
 const result = document.getElementById("priceResult");
 
-button.addEventListener("click", function priceCalc() 
+button.addEventListener("click", function priceCalc(e) 
 {
+
+    console.log(e);
 
     const passengerName = document.getElementById("userName").value;
 
@@ -40,6 +42,7 @@ button.addEventListener("click", function priceCalc()
             const discountedPrice = (price - discount20).toFixed(2);
             console.log("Il prezzo scontato del biglietto è " + discountedPrice);
             result.innerHTML = `${passengerName}, il prezzo del biglietto per la distanza richiesta è ${discountedPrice}€.`
+            return false;
         } 
         
         else if (age == "elder") {
