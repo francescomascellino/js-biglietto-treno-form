@@ -124,3 +124,10 @@ ticketForm.addEventListener("submit", function(e)
         }
     }
 });
+
+ticketForm.addEventListener("reset", function() {
+    // IL MESSAGGIO DI ERRORE SE VISIBILE VIENE RIMOSSO
+    errorMessage.style.display = "none";
+    // IL BIGNLIETTO VIENE NASCOSTO
+    ticket.style.display = "none";
+})
