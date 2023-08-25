@@ -27,18 +27,20 @@
                         calcolare il costo del biglietto</h3>
 
                     <label for="userName" class="mt-2">Inserisci il tuo nome:</label>
-                    <input type="text" id="userName" placeholder="Nome">
+                    <input type="text" name="userName" id="userName"
+                        placeholder="Nome">
 
                     <label for="distance" class="mt-2">Inserisci la distanza in
                         Km da
                         percorrrere:</label>
-                    <input type="number" id="distance" placeholder="Km">
+                    <input type="number" name="distance" id="distance"
+                        placeholder="Km">
 
                     <label for="ageRange" class="mt-2">Seleziona una fascia di
                         età:</label>
-                    <select id="ageRange">
+                    <select name="ageRange" id="ageRange">
                         <option value="minor">Fino ai 14 anni</option>
-                        <option value="adult">Dai 15 ai 65 anni</option>
+                        <option value="adult" selected>Dai 15 ai 65 anni</option>
                         <option value="elder">Over 65</option>
                     </select>
 
